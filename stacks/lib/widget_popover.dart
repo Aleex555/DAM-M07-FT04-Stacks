@@ -1,45 +1,5 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-/*
-  Exemple de com usar 'WidgetPopover'
-
-  CupertinoButton(
-    key: _settingsButtonKey,
-    padding: const EdgeInsets.all(0.0),
-    onPressed: () {
-      WidgetPopover.showPopover(
-          context: context,
-          key: _settingsButtonKey,
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              children: [
-                GestureDetector(
-                  onTap: () {
-                    print("Opció 1 premuda");
-                    WidgetPopover.hidePopover();
-                  },
-                  child: Text('Opció 1'),
-                ),
-                GestureDetector(
-                  onTap: () {
-                    print("Opció 2 premuda");
-                    WidgetPopover.hidePopover();
-                  },
-                  child: Text('Opció 2'),
-                ),
-              ],
-            ),
-          ));
-    },
-    child: const Icon(
-      CupertinoIcons.settings,
-      color: CupertinoColors.black,
-      size: 24.0,
-      semanticLabel: 'Text to announce in accessibility modes',
-    ),
-  )
-*/
 
 class WidgetPopover extends StatefulWidget {
   final Offset anchor;

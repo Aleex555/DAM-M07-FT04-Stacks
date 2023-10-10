@@ -5,6 +5,20 @@ import 'package:flutter/services.dart';
 
 class AppData with ChangeNotifier {
   bool readyExample = false;
+  bool isSidebarLeftVisible = false;
+  bool isSidebarRightVisible = false;
+
+  // Toggle sidebar left
+  void toggleSidebarLeft() {
+    isSidebarLeftVisible = !isSidebarLeftVisible;
+    notifyListeners();
+  }
+
+  // Toggle sidebar right
+  void toggleSidebarRight() {
+    isSidebarRightVisible = !isSidebarRightVisible;
+    notifyListeners();
+  }
 
   late dynamic dataExample;
 
