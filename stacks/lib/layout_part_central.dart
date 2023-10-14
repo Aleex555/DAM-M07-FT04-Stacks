@@ -1,10 +1,12 @@
 import 'package:cupertino_base/widget_popover.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'app_data.dart';
 
 class LayoutPartCentral extends StatefulWidget {
   const LayoutPartCentral({super.key});
+  
 
   @override
   LayoutPartCentralState createState() => LayoutPartCentralState();
@@ -12,6 +14,14 @@ class LayoutPartCentral extends StatefulWidget {
 
 class LayoutPartCentralState extends State<LayoutPartCentral> {
   final GlobalKey _settingsButtonKey = GlobalKey();
+  Color colorTexto = Colors.black;
+  void changeTextColor(Color newColor) {
+    setState(() {
+      colorTexto = newColor;
+    });
+  }
+
+  
   @override
   Widget build(BuildContext context) {
     AppData appData = Provider.of<AppData>(context);
@@ -48,17 +58,31 @@ class LayoutPartCentralState extends State<LayoutPartCentral> {
                       children: [
                         GestureDetector(
                           onTap: () {
-                            print("Opció 1 premuda");
+                            changeTextColor(Colors.black);
                             WidgetPopover.hidePopover();
                           },
-                          child: Text('Opció 1'),
+                          child: Text('Negro'),
                         ),
                         GestureDetector(
                           onTap: () {
-                            print("Opció 2 premuda");
+                            changeTextColor(Colors.red);
                             WidgetPopover.hidePopover();
                           },
-                          child: Text('Opció 2'),
+                          child:Text('Rojo'),
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            changeTextColor(Colors.green);
+                            WidgetPopover.hidePopover();
+                          },
+                          child:Text('Verde'),
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            changeTextColor(Colors.blue);
+                            WidgetPopover.hidePopover();
+                          },
+                          child:Text('Azul'),
                         ),
                       ],
                     ),
@@ -83,12 +107,19 @@ class LayoutPartCentralState extends State<LayoutPartCentral> {
                 semanticLabel: 'Text to announce in accessibility modes',
               )),
         ),
-        child: const Padding(
+        child:  Padding(
           padding: EdgeInsets.only(top: 50.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [Text("Central")],
+            children: [Text("Central",
+            style: TextStyle(
+                  color: colorTexto,
+                ),
+            )
+            ],
           ),
         ));
   }
+
+  
 }
